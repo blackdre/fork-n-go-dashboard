@@ -28,7 +28,9 @@ const Login = () => {
                   <p className='text-center'>Login to your account</p>
                   <form>
                     <div className='mb-3'>
-                      <label for='exampleInputEmail1' className='form-label'>
+                      <label
+                        htmlfor='exampleInputEmail1'
+                        className='form-label'>
                         Username
                       </label>
                       <input
@@ -39,7 +41,9 @@ const Login = () => {
                       />
                     </div>
                     <div className='mb-4'>
-                      <label for='exampleInputPassword1' className='form-label'>
+                      <label
+                        htmlfor='exampleInputPassword1'
+                        className='form-label'>
                         Password
                       </label>
                       <input
@@ -59,7 +63,7 @@ const Login = () => {
                         />
                         <label
                           className='form-check-label text-dark'
-                          for='flexCheckChecked'>
+                          htmlfor='flexCheckChecked'>
                           Remeber this Device
                         </label>
                       </div>
