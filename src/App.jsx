@@ -17,6 +17,7 @@ const App = () => {
         <Route path='products' element={<Products />} />
         <Route path='addproducts' element={<AddProducts />} />
       </Route>
+      {/* <Route path='*' element={<NotFoundPage />} /> */}
     </Routes>
   );
 };

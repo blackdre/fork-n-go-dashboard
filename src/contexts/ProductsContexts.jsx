@@ -11,8 +11,24 @@ export const ProductProvider = ({ children }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/data"); // Replace with your API endpoint
+        const response = await axios.get("http://localhost:8000/api/menus/"); // Replace with your API endpoint
         setProducts(response.data);
+        console.log(response.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    const addProducts = async (newData) => {
+      try {
+        const response = await axios.post(
+          "http://localhost:8000/api/menus/",
+          newData
+        );
+        setProducts(response.data);
+        console.log(response.data);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -21,11 +37,12 @@ export const ProductProvider = ({ children }) => {
     };
 
     fetchProducts();
+    addProducts();
   }, []);
 
   return (
-    <DataContext.Provider value={{ pruducts, loading, error }}>
+    <ProductsContext.Provider value={{ pruducts, loading, error, addProducts }}>
       {children}
-    </DataContext.Provider>
+    </ProductsContext.Provider>
   );
 };

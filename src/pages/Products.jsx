@@ -1,9 +1,20 @@
-import React from "react";
-import Modal from "../components/Modal";
-import { FaPlusCircle } from "react-icons/fa";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { ProductsContext } from "../contexts/ProductsContexts";
+import { CiTrash } from "react-icons/ci";
+import { FaEye, FaTrash } from "react-icons/fa";
 
 const Products = () => {
+  const { pruducts, loading, error } = useContext(ProductsContext);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <>
       <div className='row m-4'>
@@ -49,29 +60,29 @@ const Products = () => {
               <thead>
                 <tr>
                   <th scope='col'>#</th>
-                  <th scope='col'>First</th>
-                  <th scope='col'>Last</th>
-                  <th scope='col'>Handle</th>
+                  <th scope='col'>Name</th>
+                  <th scope='col'>Description</th>
+                  <th scope='col'>Price</th>
+                  <th scope='col'>action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope='row'>1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope='row'>2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope='row'>3</th>
-                  <td colspan='2'>Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
+                {pruducts.map((product) => (
+                  <tr key={product.id}>
+                    <th scope='row'>{product.id}</th>
+                    <td>{product.name}</td>
+                    <td>{product.description}</td>
+                    <td>R{product.price}</td>
+                    <td>
+                      <button className='btn btn-sm btn-outline-danger pb-2 me-2'>
+                        <FaTrash />
+                      </button>
+                      <button className='btn btn-sm btn-outline-info pb-2 '>
+                        <FaEye />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
