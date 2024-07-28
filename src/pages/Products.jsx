@@ -1,36 +1,39 @@
 import React from "react";
 import Modal from "../components/Modal";
+import { FaPlusCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
     <>
-      <div class='row m-4'>
-        <div class='col-xxl-12 mb-6 order-0'>
-          <div class='card'>
-            <div class='d-flex align-items-start row'>
-              <div class='col-sm-7'>
-                <div class='card-body'>
-                  <h5 class='card-title text-primary mb-3'>Welcome John! 🎉</h5>
-                  <p class='mb-6'>
+      <div className='row m-4'>
+        <div className='col-xxl-12 mb-6 order-0'>
+          <div className='card'>
+            <div className='d-flex align-items-start row'>
+              <div className='col-sm-7'>
+                <div className='card-body'>
+                  <h5 className='card-title text-primary mb-3'>
+                    Welcome John! 🎉
+                  </h5>
+                  <p className='mb-6'>
                     Manage your products here
                     <br />
                   </p>
 
-                  <button
-                    class='btn btn-sm btn-outline-primary'
-                    data-bs-toggle='modal'
-                    data-bs-target='#exampleModal'>
-                    View Badges
-                  </button>
-                  <Modal target='#exampleModal' />
+                  <Link
+                    to='/dashboard/addproducts'
+                    className='btn btn-sm btn-outline-primary'>
+                    {/* <FaPlusCircle />  */}
+                    Add new products
+                  </Link>
                 </div>
               </div>
-              <div class='col-sm-5 text-center text-sm-left'>
-                <div class='card-body pb-0 px-0 px-md-6'>
+              <div className='col-sm-5 text-center text-sm-left'>
+                <div className='card-body pb-0 px-0 px-md-6'>
                   <img
                     src='../assets/img/illustrations/man-with-laptop.png'
                     height='175'
-                    class='scaleX-n1-rtl'
+                    className='scaleX-n1-rtl'
                     alt='View Badge User'
                   />
                 </div>
@@ -39,10 +42,10 @@ const Products = () => {
           </div>
         </div>
       </div>
-      <div class='row m-4'>
-        <div class='col-xxl-12 mb-6 order-0'>
+      <div className='row m-4'>
+        <div className='col-xxl-12 mb-6 order-0'>
           <div className='card'>
-            <table class='table'>
+            <table className='table'>
               <thead>
                 <tr>
                   <th scope='col'>#</th>

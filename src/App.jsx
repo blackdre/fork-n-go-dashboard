@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import Products from "./pages/Products";
+import AddProducts from "./pages/AddProducts";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         <Route index element={<Dashboard />} />
         <Route path='orders' element={<Orders />} />
         <Route path='products' element={<Products />} />
+        <Route path='addproducts' element={<AddProducts />} />
       </Route>
     </Routes>
   );
