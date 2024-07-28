@@ -1,50 +1,86 @@
-import { FaChartPie, FaFileAlt, FaShoppingCart, FaUser } from "react-icons/fa";
-import { Fa0, Fa6, FaHouse } from "react-icons/fa6";
+import { FaChartBar, FaHome, FaShoppingBag } from "react-icons/fa";
+import { FaCartShopping, FaUserGroup } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
     <nav
       id='sidebarMenu'
-      className='col-md-3 col-lg-2 d-md-block bg-light sidebar collapse'>
-      <div className='pt-3'>
-        <ul className='nav flex-column'>
-          <li className='nav-item'>
-            <Link className='nav-link' aria-current='page' to='/dashboard'>
+      class='col-md-3 col-lg-2 d-md-block bg-light sidebar collapse'>
+      <div class='position-sticky pt-3'>
+        <ul class='nav flex-column'>
+          <li class='nav-item'>
+            <Link class='nav-link' aria-current='page' to='/dashboard'>
               <span>
-                <FaHouse className='me-2' />
+                <FaHome className='me-2' />
               </span>
               Dashboard
             </Link>
           </li>
-          <li className='nav-item'>
-            <Link className='nav-link' to='orders'>
+          <li class='nav-item'>
+            <Link class='nav-link' to='orders'>
               <span>
-                <FaFileAlt className='me-2' />
+                {" "}
+                <FaShoppingBag className='me-2' />
               </span>
               Orders
             </Link>
           </li>
-          <li className='nav-item'>
-            <Link className='nav-link' href='#'>
-              <FaShoppingCart className='me-2' />
+          <li class='nav-item'>
+            <Link class='nav-link' to='products'>
+              <span>
+                <FaCartShopping className='me-2' />
+              </span>
               Products
             </Link>
           </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#'>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
               <span>
-                <FaUser className='me-2' />
+                <FaUserGroup className='me-2' />
               </span>
               Customers
             </a>
           </li>
-          <li className='nav-item'>
-            <a className='nav-link' href='#'>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
               <span>
-                <FaChartPie className='me-2' />
+                <FaChartBar className='me-2' />
               </span>
               Reports
+            </a>
+          </li>
+        </ul>
+
+        <h6 class='sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted'>
+          <span>Saved reports</span>
+          <a class='link-secondary' href='#' aria-label='Add a new report'>
+            <span data-feather='plus-circle'></span>
+          </a>
+        </h6>
+        <ul class='nav flex-column mb-2'>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
+              <span data-feather='file-text'></span>
+              Current month
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
+              <span data-feather='file-text'></span>
+              Last quarter
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
+              <span data-feather='file-text'></span>
+              Social engagement
+            </a>
+          </li>
+          <li class='nav-item'>
+            <a class='nav-link' href='#'>
+              <span data-feather='file-text'></span>
+              Year-end sale
             </a>
           </li>
         </ul>
